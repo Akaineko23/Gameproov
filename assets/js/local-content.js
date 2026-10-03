@@ -240,6 +240,9 @@ export const localContent = {
   "ru": {
     "description": `
       <h2>
+      <strong>поять тест</strong>
+      </h2>
+      <h2>
       <strong>Undertail</strong>
       </h2>
       <h3>
@@ -320,6 +323,9 @@ export const localContent = {
       <p>Побеждает сторона, набравшая больше победных баллов к окончанию игры.</p>
     `,
     "rules": `
+      <h3>
+      <strong>ghjcnj [htyjntym не забудь убрать это для теста</strong>
+      </h3>
       <h3>
       <strong>Основные правила</strong>
       </h3>
@@ -464,6 +470,9 @@ export const localContent = {
       </ul>
     `,
     "news": `
+      <h3>
+      <strong>тебя для новости не задолбали?</strong>
+      </h3>
       <h3>
       <strong>22.09.2026 Изменения в правилах.</strong>
       </h3>

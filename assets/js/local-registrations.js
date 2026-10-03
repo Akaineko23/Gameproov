@@ -143,6 +143,20 @@ export const localRegistrations = {
         "Mjaut",
         "koshara",
         "Makstud"
+      ],
+      [
+        "2018",
+        "",
+        "Alina",
+        "Frjgtx",
+        "Makstud"
+      ],
+      [
+        "2019",
+        "517",
+        "Juri",
+        "Gimli",
+        "Makstud"
       ]
     ]
   },
@@ -288,6 +302,20 @@ export const localRegistrations = {
         "Mjaut",
         "koshara",
         "Оплачен"
+      ],
+      [
+        "2018",
+        "",
+        "Alina",
+        "Frjgtx",
+        "Оплачен"
+      ],
+      [
+        "2019",
+        "517",
+        "Juri",
+        "Gimli",
+        "Оплачен"
       ]
     ]
   },
@@ -432,6 +460,20 @@ export const localRegistrations = {
         "555",
         "Mjaut",
         "koshara",
+        "Paid"
+      ],
+      [
+        "2018",
+        "",
+        "Alina",
+        "Frjgtx",
+        "Paid"
+      ],
+      [
+        "2019",
+        "517",
+        "Juri",
+        "Gimli",
         "Paid"
       ]
     ]
