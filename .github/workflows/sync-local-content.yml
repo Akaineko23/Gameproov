@@ -2,7 +2,7 @@ name: Sync local game content
 
 on:
   schedule:
-    - cron: '7/37 * * * *'
+    - cron: '12/42 * * * *'
   workflow_dispatch:
 
 permissions:
