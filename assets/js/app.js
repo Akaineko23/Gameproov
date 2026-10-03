@@ -1,0 +1,334 @@
+import { config } from './config.js';
+import { configureFienta, renderFientaStatus } from './fienta.js?v=0.2.10';
+import { messages } from './i18n.js?v=0.3.0';
+import { localContent } from './local-content.js?v=0.3.0';
+import { localRegistrations } from './local-registrations.js?v=0.4.0';
+
+let language = chooseInitialLanguage();
+let contentMode = getModeForHash(window.location.hash);
+
+function getModeForHash(hash) {
+  if (hash === '#news') {
+    return 'news';
+  }
+
+  if (hash === '#registered') {
+    return 'registered';
+  }
+
+  return 'details';
+}
+
+function setContentMode(mode) {
+  contentMode = mode;
+
+  document.querySelectorAll('[data-content-mode-panel]').forEach((panel) => {
+    panel.hidden = panel.dataset.contentModePanel !== contentMode;
+  });
+
+  document.querySelectorAll('[data-content-mode]').forEach((button) => {
+    const isActive = button.dataset.contentMode === contentMode;
+    button.classList.toggle('active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
+  });
+}
+
+function setActiveNavigation(hash) {
+  document.querySelectorAll('[data-navigation-target]').forEach((link) => {
+    const isActive = link.dataset.navigationTarget === hash;
+    link.classList.toggle('active', isActive);
+
+    if (isActive) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+}
+
+function navigateToSection(hash, mode) {
+  setContentMode(mode);
+  setActiveNavigation(hash);
+
+  if (window.location.hash !== hash) {
+    window.history.pushState(null, '', hash);
+  }
+
+  window.requestAnimationFrame(() => {
+    document.querySelector(hash)?.scrollIntoView();
+  });
+}
+
+function chooseInitialLanguage() {
+  const saved = localStorage.getItem('game-language');
+
+  if (saved && messages[saved]) {
+    return saved;
+  }
+
+  const browserLanguage = (navigator.language || '').slice(0, 2).toLowerCase();
+  return messages[browserLanguage] ? browserLanguage : 'et';
+}
+
+function translate(key, variables = {}) {
+  let text = messages[language][key] || messages.en[key] || key;
+
+  Object.entries(variables).forEach(([name, value]) => {
+    text = text.replace(`{${name}}`, value);
+  });
+
+  return text;
+}
+
+function renderLanguage() {
+  document.documentElement.lang = language;
+
+  document.querySelectorAll('[data-i18n]').forEach((element) => {
+    const key = element.dataset.i18n;
+
+    if (element.hasAttribute('data-i18n-hide-empty')) {
+      const optionalText = messages[language][key] || '';
+      element.textContent = optionalText;
+      element.hidden = optionalText.length === 0;
+      return;
+    }
+
+    element.textContent = translate(key);
+  });
+
+  document.querySelectorAll('[data-language]').forEach((button) => {
+    button.classList.toggle('active', button.dataset.language === language);
+    button.setAttribute('aria-pressed', button.dataset.language === language);
+  });
+
+  document.querySelectorAll('[data-game]').forEach((element) => {
+    const value = config.game[element.dataset.game];
+    element.textContent = typeof value === 'object' ? value[language] || value.en : value;
+  });
+
+  document.querySelectorAll('[data-game-time]').forEach((element) => {
+    const value = config.game.times[element.dataset.gameTime];
+    element.textContent = value || translate('timePending');
+  });
+
+  renderTicketWaves();
+
+  document.querySelector('[data-map-link]').href = config.game.mapUrl;
+  renderContactEmail();
+  renderLocalContent();
+  renderRegisteredPlayers();
+  setContentMode(contentMode);
+  setActiveNavigation(window.location.hash || '#about');
+
+  document.title = `${config.game.name} — ${translate('eventType')}`;
+  renderFientaStatus(translate);
+}
+
+function renderTicketWaves() {
+  document.querySelectorAll('[data-ticket-wave]').forEach((element) => {
+    const wave = config.game.ticketWaves.find((item) => item.key === element.dataset.ticketWave);
+
+    if (!wave) {
+      return;
+    }
+
+    element.querySelector('[data-ticket-wave-price]').textContent = wave.price;
+    const dates = element.querySelector('[data-ticket-wave-dates]');
+    dates.textContent = wave.dates;
+    dates.hidden = !wave.dates;
+  });
+}
+
+function renderContactEmail() {
+  const contact = document.querySelector('[data-contact-email]');
+  const email = config.game.contactEmail.trim();
+
+  contact.hidden = !email;
+  contact.textContent = email;
+  contact.href = email ? `mailto:${email}` : '';
+}
+
+function buildRulesContents() {
+  const contents = document.querySelector('[data-rules-toc]');
+  contents.innerHTML = '';
+
+  document.querySelectorAll('.rules-content h2, .rules-content h3').forEach((heading, index) => {
+    if (!heading.id) {
+      heading.id = `rule-${index + 1}`;
+    }
+
+    const link = document.createElement('a');
+    link.href = `#${heading.id}`;
+    link.textContent = heading.textContent;
+    contents.append(link);
+  });
+}
+
+function renderLocalContent() {
+  const content = localContent[language];
+
+  ['description', 'rules'].forEach((contentKey) => {
+    const container = document.querySelector(`[data-remote-content="${contentKey}"]`);
+    const html = content && content[contentKey];
+
+    if (typeof html === 'string' && html.trim()) {
+      container.innerHTML = html;
+    } else {
+      container.textContent = translate('contentUnavailable');
+    }
+
+    container.setAttribute('aria-busy', 'false');
+  });
+
+  const newsContainer = document.querySelector('[data-local-content="news"]');
+  const newsHtml = content && content.news;
+
+  if (typeof newsHtml === 'string' && newsHtml.trim()) {
+    newsContainer.innerHTML = newsHtml;
+  } else {
+    newsContainer.textContent = translate('newsUnavailable');
+  }
+
+  buildRulesContents();
+}
+
+function renderRegisteredPlayers() {
+  const container = document.querySelector('[data-registered-content]');
+  const registrations = localRegistrations[language];
+
+  container.replaceChildren();
+
+  if (!registrations || !registrations.columns.length) {
+    const message = document.createElement('p');
+    message.className = 'empty-state';
+    message.textContent = translate('registeredColumnsPending');
+    container.append(message);
+    return;
+  }
+
+  if (!registrations.rows.length) {
+    const message = document.createElement('p');
+    message.className = 'empty-state';
+    message.textContent = translate('registeredEmpty');
+    container.append(message);
+    return;
+  }
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'registered-table-wrapper';
+  const table = document.createElement('table');
+  table.className = 'registered-table';
+  const head = document.createElement('thead');
+  const headRow = document.createElement('tr');
+
+  registrations.columns.forEach((column) => {
+    const heading = document.createElement('th');
+    heading.scope = 'col';
+    heading.textContent = column.label;
+    headRow.append(heading);
+  });
+
+  head.append(headRow);
+  table.append(head);
+  const body = document.createElement('tbody');
+
+  registrations.rows.forEach((registration) => {
+    const row = document.createElement('tr');
+
+    registration.forEach((value) => {
+      const cell = document.createElement('td');
+      cell.textContent = value;
+      row.append(cell);
+    });
+
+    body.append(row);
+  });
+
+  table.append(body);
+  wrapper.append(table);
+  container.append(wrapper);
+}
+
+document.querySelectorAll('[data-language]').forEach((button) => {
+  button.addEventListener('click', () => {
+    language = button.dataset.language;
+    localStorage.setItem('game-language', language);
+    renderLanguage();
+  });
+});
+
+const menu = document.querySelector('[data-navigation]');
+const menuToggle = document.querySelector('[data-menu-toggle]');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = menu.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  document.body.classList.toggle('menu-open', isOpen);
+});
+
+menu.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    menu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  });
+});
+
+document.querySelector('[data-news-navigation]').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  if (contentMode === 'news') {
+    navigateToSection('#about', 'details');
+  } else {
+    navigateToSection('#news', 'news');
+  }
+});
+
+document.querySelector('[data-registered-navigation]').addEventListener('click', (event) => {
+  event.preventDefault();
+  navigateToSection('#registered', 'registered');
+});
+
+document.querySelectorAll('[data-content-mode]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const mode = button.dataset.contentMode;
+    const hash = mode === 'details' ? '#about' : `#${mode}`;
+    navigateToSection(hash, mode);
+  });
+});
+
+document.querySelectorAll('a[href="#about"], a[href="#rules"]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    navigateToSection(link.hash, 'details');
+  });
+});
+
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash;
+
+  if (hash === '#news') {
+    setContentMode('news');
+  } else if (hash === '#registered') {
+    setContentMode('registered');
+  } else if (hash === '#about' || hash === '#rules') {
+    setContentMode('details');
+  }
+
+  setActiveNavigation(hash);
+});
+
+window.addEventListener('scroll', () => {
+  document.querySelector('[data-header]').classList.toggle('scrolled', window.scrollY > 30);
+}, { passive: true });
+
+document.querySelector('[data-year]').textContent = new Date().getFullYear();
+
+renderLanguage();
+configureFienta(translate);
+
+if (window.location.hash) {
+  window.requestAnimationFrame(() => {
+    document.querySelector(window.location.hash)?.scrollIntoView();
+  });
+}
