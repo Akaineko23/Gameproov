@@ -242,6 +242,7 @@ export const localContent = {
       <h2>
       <strong>поять тест</strong>
       </h2>
+      <p>опять проблема но не забудь стереть</p>
       <h2>
       <strong>Undertail</strong>
       </h2>
@@ -326,6 +327,9 @@ export const localContent = {
       <h3>
       <strong>ghjcnj [htyjntym не забудь убрать это для теста</strong>
       </h3>
+      <p>
+      <strong>Spürst du Schmerz? Dann lebst du noch. Steh auf und töte – oder genieße, wie man dich zerreißt, mit einem Lächeln auf deinem blutverschmierten Gesicht.</strong>
+      </p>
       <h3>
       <strong>Основные правила</strong>
       </h3>
