@@ -1,8 +1,6 @@
 name: Sync local game content
 
 on:
-  schedule:
-    - cron: '12/42 * * * *'
   workflow_dispatch:
 
 permissions:
