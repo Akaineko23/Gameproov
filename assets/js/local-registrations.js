@@ -178,27 +178,6 @@ export const localRegistrations = {
         "hren",
         "Jobobo",
         "Maksmata"
-      ],
-      [
-        "2023",
-        "",
-        "",
-        "",
-        "Maksmata"
-      ],
-      [
-        "2024",
-        "",
-        "",
-        "",
-        "Maksmata"
-      ],
-      [
-        "2025",
-        "",
-        "",
-        "",
-        "Maksmata"
       ]
     ]
   },
@@ -379,27 +358,6 @@ export const localRegistrations = {
         "hren",
         "Jobobo",
         "Не оплачен"
-      ],
-      [
-        "2023",
-        "",
-        "",
-        "",
-        "Не оплачен"
-      ],
-      [
-        "2024",
-        "",
-        "",
-        "",
-        "Не оплачен"
-      ],
-      [
-        "2025",
-        "",
-        "",
-        "",
-        "Не оплачен"
       ]
     ]
   },
@@ -579,27 +537,6 @@ export const localRegistrations = {
         "",
         "hren",
         "Jobobo",
-        "Unpaid"
-      ],
-      [
-        "2023",
-        "",
-        "",
-        "",
-        "Unpaid"
-      ],
-      [
-        "2024",
-        "",
-        "",
-        "",
-        "Unpaid"
-      ],
-      [
-        "2025",
-        "",
-        "",
-        "",
         "Unpaid"
       ]
     ]
