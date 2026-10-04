@@ -171,6 +171,13 @@ export const localRegistrations = {
         "Grabli",
         "Akuna matata",
         "Makstud"
+      ],
+      [
+        "2022",
+        "",
+        "",
+        "",
+        "Maksmata"
       ]
     ]
   },
@@ -344,6 +351,13 @@ export const localRegistrations = {
         "Grabli",
         "Akuna matata",
         "Оплачен"
+      ],
+      [
+        "2022",
+        "",
+        "",
+        "",
+        "Не оплачен"
       ]
     ]
   },
@@ -517,6 +531,13 @@ export const localRegistrations = {
         "Grabli",
         "Akuna matata",
         "Paid"
+      ],
+      [
+        "2022",
+        "",
+        "",
+        "",
+        "Unpaid"
       ]
     ]
   }
