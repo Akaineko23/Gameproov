@@ -4,6 +4,9 @@ export const localContent = {
   "et": {
     "description": `
       <h2>
+      <strong>111</strong>
+      </h2>
+      <h2>
       <strong>Undertail</strong>
       </h2>
       <h3>
@@ -85,6 +88,9 @@ export const localContent = {
       <p>Võidab pool, kellel on mängu lõpuks kõige rohkem võidupunkte.</p>
     `,
     "rules": `
+      <h3>
+      <strong>111</strong>
+      </h3>
       <h3>
       <strong>Põhireeglid</strong>
       </h3>
@@ -218,6 +224,7 @@ export const localContent = {
       </ul>
     `,
     "news": `
+      <h3>111</h3>
       <h3>22.09.2026 Reeglite muudatused</h3>
       <p>Kallid sõbrad!</p>
       <p>Oleme teinud reeglitesse mõned väikesed täiendused, mis puudutavad <strong>droonide kasutamist</strong>.</p>
@@ -239,6 +246,9 @@ export const localContent = {
   },
   "ru": {
     "description": `
+      <h2>
+      <strong>111</strong>
+      </h2>
       <h2>
       <strong>Undertail</strong>
       </h2>
@@ -320,11 +330,8 @@ export const localContent = {
       <p>Побеждает сторона, набравшая больше победных баллов к окончанию игры.</p>
     `,
     "rules": `
-      <h3>
-      <strong>ghjcnj [htyjntym не забудь убрать это для теста</strong>
-      </h3>
       <p>
-      <strong>Spürst du Schmerz? Dann lebst du noch. Steh auf und töte – oder genieße, wie man dich zerreißt, mit einem Lächeln auf deinem blutverschmierten Gesicht.</strong>
+      <strong>111</strong>
       </p>
       <h3>
       <strong>Основные правила</strong>
@@ -471,6 +478,9 @@ export const localContent = {
     `,
     "news": `
       <h3>
+      <strong>111</strong>
+      </h3>
+      <h3>
       <strong>22.09.2026 Изменения в правилах.</strong>
       </h3>
       <p>Дорогие друзья, мы внесли небольшие дополнения в правила, касаемые использование дронов.</p>
@@ -492,6 +502,9 @@ export const localContent = {
   },
   "en": {
     "description": `
+      <h2>
+      <strong>111</strong>
+      </h2>
       <h2>
       <strong>Undertail</strong>
       </h2>
@@ -575,6 +588,9 @@ export const localContent = {
       <p>The faction with the most victory points at the end of the game wins.</p>
     `,
     "rules": `
+      <h3>
+      <strong>111</strong>
+      </h3>
       <h3>
       <strong>Basic Rules</strong>
       </h3>
@@ -709,6 +725,9 @@ export const localContent = {
       </ul>
     `,
     "news": `
+      <h3>
+      <strong>111</strong>
+      </h3>
       <h3>
       <strong>22.09.2026 Rules Update</strong>
       </h3>
