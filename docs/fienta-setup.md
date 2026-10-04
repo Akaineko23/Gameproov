@@ -46,7 +46,7 @@ Create these Script Properties:
 - `FIENTA_WEBHOOK_SECRET`: the random webhook URL secret described above.
 - `FIENTA_TICKET_TYPE_SIDE_MAP`: JSON object mapping real ticket-type IDs to game sides. Do not use guessed IDs or ticket titles. Unmapped ticket types remain blank.
 
-The public registration columns are a fixed server-side allowlist: Player Number, Permanent Registration Number, First Name, Callsign and the translated public Payment Status. They are not configured through Script Properties. The local synchronization rejects any different set of columns as a second privacy boundary.
+The public registration columns are a fixed server-side allowlist: Player Number, Permanent Registration Number, First Name, Callsign, Side and the translated public Payment Status. They are not configured through Script Properties. The local synchronization rejects any different set of columns as a second privacy boundary.
 
 Optional attendee-field mappings are `FIENTA_FIRST_NAME_FIELD`, `FIENTA_LAST_NAME_FIELD`, `FIENTA_CALLSIGN_FIELD`, `FIENTA_EMAIL_FIELD`, `FIENTA_PHONE_FIELD`, `FIENTA_TEAM_FIELD`, and `FIENTA_PERMANENT_REGISTRATION_NUMBER_FIELD`. Change them only after the real keys have been observed in a `Proov` API or webhook payload.
 

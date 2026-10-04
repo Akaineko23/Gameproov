@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
@@ -11,6 +12,7 @@ const publicRegistrationKeys = [
   'Permanent Registration Number',
   'First Name',
   'Callsign',
+  'Side',
   'Payment Status',
 ];
 const allowedTags = new Set([
@@ -19,6 +21,7 @@ const allowedTags = new Set([
   'em',
   'h2',
   'h3',
+  'img',
   'li',
   'ol',
   'p',
@@ -52,6 +55,8 @@ async function main() {
     }
   }
 
+  const imageFiles = registrationsOnly ? [] : localizeContentImages(content);
+
   const localContentPath = path.join(projectDirectory, 'assets/js/local-content.js');
   const currentModule = await fs.readFile(localContentPath, 'utf8');
   const generatedModule = registrationsOnly
@@ -71,6 +76,7 @@ async function main() {
   const files = registrationsOnly
     ? []
     : [
+        ...imageFiles,
         {
           targetPath: localContentPath,
           contents: generatedModule,
@@ -89,6 +95,10 @@ async function main() {
   }
 
   const changedFiles = await writeValidatedFiles(files);
+
+  if (!registrationsOnly && !newsOnly) {
+    await removeUnusedSyncedImages(imageFiles);
+  }
 
   if (!changedFiles.length) {
     console.log('Local content already matches the source; no files were changed.');
@@ -240,6 +250,17 @@ function sanitizeHtml(value) {
       return '<br>';
     }
 
+    if (tagName === 'img') {
+      const srcMatch = attributes.match(/\bsrc\s*=\s*(['"])(data:image\/(?:png|jpeg|gif|webp);base64,[a-z0-9+/=]+)\1/i);
+      const altMatch = attributes.match(/\balt\s*=\s*(['"])(.*?)\1/i);
+
+      if (!srcMatch) {
+        throw new Error('Document image is invalid; existing local files were not changed.');
+      }
+
+      return `<img src="${escapeAttribute(srcMatch[2])}" alt="${escapeAttribute(altMatch ? altMatch[2] : '')}">`;
+    }
+
     if (tagName !== 'a') {
       return `<${tagName}>`;
     }
@@ -253,6 +274,67 @@ function sanitizeHtml(value) {
     const href = escapeAttribute(hrefMatch[2]);
     return `<a href="${href}" target="_blank" rel="noopener noreferrer">`;
   });
+}
+
+function localizeContentImages(content) {
+  const filesByName = new Map();
+
+  Object.values(content).forEach((languageContent) => {
+    Object.keys(languageContent).forEach((key) => {
+      languageContent[key] = languageContent[key].replace(
+        /src="data:(image\/(?:png|jpeg|gif|webp));base64,([a-z0-9+/=]+)"/gi,
+        (match, contentType, base64) => {
+          const contents = Buffer.from(base64, 'base64');
+
+          if (!contents.length) {
+            throw new Error('Document image is empty; existing local files were not changed.');
+          }
+
+          const extension = contentType.toLowerCase() === 'image/jpeg'
+            ? 'jpg'
+            : contentType.split('/')[1].toLowerCase();
+          const digest = crypto.createHash('sha256').update(contents).digest('hex');
+          const fileName = `${digest}.${extension}`;
+          filesByName.set(fileName, contents);
+          return `src="Pics/Synced/${fileName}"`;
+        },
+      );
+
+      if (/src="data:image\//i.test(languageContent[key])) {
+        throw new Error('Document image could not be localized; existing local files were not changed.');
+      }
+    });
+  });
+
+  return Array.from(filesByName, ([fileName, contents]) => ({
+    targetPath: path.join(projectDirectory, 'Pics', 'Synced', fileName),
+    contents,
+  }));
+}
+
+async function removeUnusedSyncedImages(imageFiles) {
+  const directory = path.join(projectDirectory, 'Pics', 'Synced');
+  const activeNames = new Set(imageFiles.map((file) => path.basename(file.targetPath)));
+  let existingNames = [];
+
+  try {
+    existingNames = await fs.readdir(directory);
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      return;
+    }
+
+    throw error;
+  }
+
+  const unusedNames = existingNames.filter((name) => (
+    /^[a-f0-9]{64}\.(png|jpg|gif|webp)$/.test(name)
+    && !activeNames.has(name)
+  ));
+
+  await Promise.all(unusedNames.map((name) => (
+    fs.unlink(path.join(directory, name))
+  )));
 }
 
 function isSafeLink(value) {
@@ -414,7 +496,11 @@ function formatInitialHtml(html) {
 
 async function writeValidatedFiles(files) {
   files.forEach(({ targetPath, contents }) => {
-    if (!contents.trim()) {
+    const size = Buffer.isBuffer(contents)
+      ? contents.length
+      : Buffer.byteLength(String(contents));
+
+    if (!size) {
       throw new Error(`Refusing to overwrite ${targetPath} with empty content.`);
     }
   });
@@ -422,24 +508,31 @@ async function writeValidatedFiles(files) {
   const changedFiles = [];
 
   for (const file of files) {
-    let currentContents = '';
+    let currentContents = Buffer.alloc(0);
+    const nextContents = Buffer.isBuffer(file.contents)
+      ? file.contents
+      : Buffer.from(file.contents, 'utf8');
 
     try {
-      currentContents = await fs.readFile(file.targetPath, 'utf8');
+      currentContents = await fs.readFile(file.targetPath);
     } catch (error) {
       if (error.code !== 'ENOENT') {
         throw error;
       }
     }
 
-    if (currentContents !== file.contents) {
-      changedFiles.push(file);
+    if (!currentContents.equals(nextContents)) {
+      changedFiles.push({
+        ...file,
+        contents: nextContents,
+      });
     }
   }
 
-  await Promise.all(changedFiles.map(({ targetPath, contents }) => (
-    fs.writeFile(`${targetPath}.tmp`, contents, 'utf8')
-  )));
+  await Promise.all(changedFiles.map(async ({ targetPath, contents }) => {
+    await fs.mkdir(path.dirname(targetPath), { recursive: true });
+    await fs.writeFile(`${targetPath}.tmp`, contents);
+  }));
 
   for (const { targetPath } of changedFiles) {
     await fs.rename(`${targetPath}.tmp`, targetPath);

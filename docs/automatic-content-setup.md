@@ -92,7 +92,7 @@ node scripts/sync-content.mjs --registrations-only
 6. Откройте webhooks реального события и вставьте тот же deployment URL с тем же secret. Старые webhooks `Proov` отключите только после теста.
 7. `FIENTA_API_TOKEN`, `FIENTA_ORGANIZER_ID`, Apps Script deployment URL, GitHub workflow и Cloudflare-связь остаются без изменений, если организатор, Apps Script и репозиторий те же.
 8. До включения trigger вручную запустите `syncFientaRegistrations`, сверьте оба листа и затем `rebuildGameSheet`.
-9. Запустите `node scripts/sync-content.mjs --registrations-only`, откройте `local-registrations.js` и убедитесь, что в нём есть только пять разрешённых полей.
+9. Запустите `node scripts/sync-content.mjs --registrations-only`, откройте `local-registrations.js` и убедитесь, что в нём есть только шесть разрешённых полей, включая `Side`.
 10. Только после этого запустите `installFientaSyncTrigger` и проведите тест webhook.
 
 ## 8. End-to-end проверка

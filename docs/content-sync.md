@@ -14,6 +14,8 @@ Before publishing changes made in Google Docs:
 
 4. The command requests description, rules, news and public registrations for ET, RU and EN, removes unsupported tags and attributes, and validates every response before writing files.
 
+Inline PNG, JPEG, GIF and WebP images from Google Docs are converted to content-hashed local files in `Pics/Synced`. A successful full sync removes only obsolete generated hash files from that directory. It never cleans `Pics/Icons`, `Pics/Map` or other manually managed assets. If an image is invalid, the synchronization stops before replacing the working local content.
+
 To refresh only the three news documents without requesting or changing the description and rules, run:
 
 ```powershell

@@ -35,7 +35,9 @@
 - Test all six configured ticket types and verify each Ticket Type ID maps to the correct side independently.
 - Reorder columns in a test copy of both sheets and verify updates still resolve columns by header.
 - Delete the Working sheet rows, run `rebuildGameSheet`, and verify they are rebuilt without an API request.
-- Verify the public response and `local-registrations.js` contain exactly five approved fields and no surname, email, phone, buyer data, Fienta ID, team or technical status.
+- Verify the public response and `local-registrations.js` contain exactly six approved fields, including Side, and no surname, email, phone, buyer data, Fienta ID, team or technical status.
+- Insert, replace and remove an inline image in each Google Docs content type. Run the full synchronization and verify generated files appear or disappear only in `Pics/Synced`.
+- Confirm `Pics/Icons` and `Pics/Map` remain byte-for-byte unchanged after image cleanup.
 - Verify a permanent number of 1–5 digits is public, while longer or nonnumeric values become an empty public cell without changing the internal sheets.
 - Test update, cancellation/refund and validation events only after their real payloads have been mapped.
 

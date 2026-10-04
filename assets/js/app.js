@@ -8,15 +8,19 @@ let language = chooseInitialLanguage();
 let contentMode = getModeForHash(window.location.hash);
 
 function getModeForHash(hash) {
-  if (hash === '#news') {
-    return 'news';
-  }
-
   if (hash === '#registered') {
     return 'registered';
   }
 
-  return 'details';
+  if (hash === '#map') {
+    return 'map';
+  }
+
+  if (hash === '#about' || hash === '#rules') {
+    return 'details';
+  }
+
+  return 'news';
 }
 
 function setContentMode(mode) {
@@ -43,6 +47,11 @@ function setActiveNavigation(hash) {
     } else {
       link.removeAttribute('aria-current');
     }
+  });
+
+  document.querySelectorAll('[data-navigation-dropdown]').forEach((dropdown) => {
+    const groupedHashes = ['#information', '#about', '#rules'];
+    dropdown.classList.toggle('active', groupedHashes.includes(hash));
   });
 }
 
@@ -96,6 +105,10 @@ function renderLanguage() {
     element.textContent = translate(key);
   });
 
+  document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+    element.setAttribute('aria-label', translate(element.dataset.i18nAriaLabel));
+  });
+
   document.querySelectorAll('[data-language]').forEach((button) => {
     button.classList.toggle('active', button.dataset.language === language);
     button.setAttribute('aria-pressed', button.dataset.language === language);
@@ -114,14 +127,50 @@ function renderLanguage() {
   renderTicketWaves();
 
   document.querySelector('[data-map-link]').href = config.game.mapUrl;
+  document.querySelectorAll('[data-map-image], [data-map-dialog-image]').forEach((image) => {
+    image.src = config.game.mapImage;
+  });
+  applySideConfiguration();
   renderContactEmail();
   renderLocalContent();
   renderRegisteredPlayers();
   setContentMode(contentMode);
-  setActiveNavigation(window.location.hash || '#about');
+  setActiveNavigation(window.location.hash || '#news');
 
   document.title = `${config.game.name} — ${translate('eventType')}`;
   renderFientaStatus(translate);
+}
+
+function applySideConfiguration() {
+  document.documentElement.style.setProperty('--side-1', config.game.sides.side1.color);
+  document.documentElement.style.setProperty('--side-2', config.game.sides.side2.color);
+}
+
+function renderFriends() {
+  const container = document.querySelector('[data-friends-list]');
+  container.replaceChildren();
+
+  config.game.friends.forEach((friend) => {
+    const item = document.createElement('article');
+    item.className = 'friend-item';
+    const imageLink = document.createElement('a');
+    imageLink.href = friend.url;
+    imageLink.target = '_blank';
+    imageLink.rel = 'noopener noreferrer';
+    imageLink.setAttribute('aria-label', friend.name);
+    const image = document.createElement('img');
+    image.src = friend.image;
+    image.alt = '';
+    image.loading = 'lazy';
+    imageLink.append(image);
+    const nameLink = document.createElement('a');
+    nameLink.href = friend.url;
+    nameLink.target = '_blank';
+    nameLink.rel = 'noopener noreferrer';
+    nameLink.textContent = friend.name;
+    item.append(imageLink, nameLink);
+    container.append(item);
+  });
 }
 
 function renderTicketWaves() {
@@ -197,6 +246,7 @@ function renderRegisteredPlayers() {
   const registrations = localRegistrations[language];
 
   container.replaceChildren();
+  renderSideBalance(registrations);
 
   if (!registrations || !registrations.columns.length) {
     const message = document.createElement('p');
@@ -225,6 +275,7 @@ function renderRegisteredPlayers() {
     const heading = document.createElement('th');
     heading.scope = 'col';
     heading.textContent = column.label;
+    heading.dataset.columnKey = column.key;
     headRow.append(heading);
   });
 
@@ -235,9 +286,34 @@ function renderRegisteredPlayers() {
   registrations.rows.forEach((registration) => {
     const row = document.createElement('tr');
 
-    registration.forEach((value) => {
+    registration.forEach((value, index) => {
+      const column = registrations.columns[index];
       const cell = document.createElement('td');
-      cell.textContent = value;
+      cell.dataset.columnKey = column.key;
+
+      if (column.key === 'Payment Status') {
+        const status = document.createElement('span');
+        status.className = value === translate('paymentPaid')
+          ? 'registration-badge payment-paid'
+          : 'registration-badge payment-unpaid';
+        status.textContent = value;
+        cell.append(status);
+      } else if (column.key === 'Side') {
+        const side = document.createElement('span');
+        side.className = 'registration-badge';
+
+        if (value === config.game.sides.side1.name) {
+          side.classList.add('side-1');
+        } else if (value === config.game.sides.side2.name) {
+          side.classList.add('side-2');
+        }
+
+        side.textContent = value;
+        cell.append(side);
+      } else {
+        cell.textContent = value;
+      }
+
       row.append(cell);
     });
 
@@ -247,6 +323,44 @@ function renderRegisteredPlayers() {
   table.append(body);
   wrapper.append(table);
   container.append(wrapper);
+}
+
+function renderSideBalance(registrations) {
+  const balance = document.querySelector('[data-side-balance]');
+  const chart = document.querySelector('[data-side-balance-chart]');
+  const legend = document.querySelector('[data-side-balance-legend]');
+
+  if (!registrations || !registrations.columns.length) {
+    balance.hidden = true;
+    return;
+  }
+
+  const sideIndex = registrations.columns.findIndex((column) => column.key === 'Side');
+
+  if (sideIndex < 0) {
+    balance.hidden = true;
+    return;
+  }
+
+  const sides = [config.game.sides.side1, config.game.sides.side2];
+  const counts = sides.map((side) => registrations.rows.filter((row) => row[sideIndex] === side.name).length);
+  const total = counts[0] + counts[1];
+  const side1Percent = total ? counts[0] / total * 100 : 50;
+  chart.classList.toggle('empty', total === 0);
+  chart.style.setProperty('--side-1-percent', `${side1Percent}%`);
+  chart.setAttribute('aria-label', `${sides[0].name}: ${counts[0]}; ${sides[1].name}: ${counts[1]}`);
+  legend.replaceChildren();
+
+  sides.forEach((side, index) => {
+    const row = document.createElement('p');
+    const marker = document.createElement('span');
+    marker.className = `side-marker side-${index + 1}`;
+    marker.setAttribute('aria-hidden', 'true');
+    row.append(marker, document.createTextNode(`${side.name} — ${counts[index]}`));
+    legend.append(row);
+  });
+
+  balance.hidden = false;
 }
 
 document.querySelectorAll('[data-language]').forEach((button) => {
@@ -271,13 +385,27 @@ menu.querySelectorAll('a').forEach((link) => {
     menu.classList.remove('open');
     menuToggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('menu-open');
+    document.querySelectorAll('[data-navigation-dropdown]').forEach((dropdown) => {
+      dropdown.classList.remove('open');
+      dropdown.querySelector('[data-navigation-dropdown-toggle]').setAttribute('aria-expanded', 'false');
+    });
+  });
+});
+
+document.querySelectorAll('[data-navigation-dropdown-toggle]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const dropdown = button.closest('[data-navigation-dropdown]');
+    const isOpen = dropdown.classList.toggle('open');
+    button.setAttribute('aria-expanded', String(isOpen));
   });
 });
 
 document.querySelector('[data-news-navigation]').addEventListener('click', (event) => {
   event.preventDefault();
 
-  if (contentMode === 'news') {
+  const isMobileNavigation = window.matchMedia('(max-width: 56.25rem)').matches;
+
+  if (!isMobileNavigation && contentMode === 'news') {
     navigateToSection('#about', 'details');
   } else {
     navigateToSection('#news', 'news');
@@ -287,6 +415,11 @@ document.querySelector('[data-news-navigation]').addEventListener('click', (even
 document.querySelector('[data-registered-navigation]').addEventListener('click', (event) => {
   event.preventDefault();
   navigateToSection('#registered', 'registered');
+});
+
+document.querySelector('[data-map-navigation]').addEventListener('click', (event) => {
+  event.preventDefault();
+  navigateToSection('#map', 'map');
 });
 
 document.querySelectorAll('[data-content-mode]').forEach((button) => {
@@ -311,11 +444,49 @@ window.addEventListener('hashchange', () => {
     setContentMode('news');
   } else if (hash === '#registered') {
     setContentMode('registered');
+  } else if (hash === '#map') {
+    setContentMode('map');
   } else if (hash === '#about' || hash === '#rules') {
     setContentMode('details');
   }
 
   setActiveNavigation(hash);
+});
+
+const mapDialog = document.querySelector('[data-map-dialog]');
+const mapDialogImage = document.querySelector('[data-map-dialog-image]');
+let mapZoom = 1;
+
+function setMapZoom(nextZoom) {
+  mapZoom = Math.min(4, Math.max(1, nextZoom));
+  mapDialogImage.style.width = `${mapZoom * 100}%`;
+}
+
+document.querySelector('[data-map-open]').addEventListener('click', () => {
+  setMapZoom(1);
+  mapDialog.showModal();
+});
+
+document.querySelector('[data-map-close]').addEventListener('click', () => {
+  mapDialog.close();
+});
+
+document.querySelector('[data-map-zoom-in]').addEventListener('click', () => {
+  setMapZoom(mapZoom + 0.5);
+});
+
+document.querySelector('[data-map-zoom-out]').addEventListener('click', () => {
+  setMapZoom(mapZoom - 0.5);
+});
+
+document.querySelector('[data-map-zoom-reset]').addEventListener('click', () => {
+  setMapZoom(1);
+});
+
+mapDialog.addEventListener('click', (event) => {
+  if (event.target === mapDialog) {
+    mapDialog.close();
+  }
 });
 
 window.addEventListener('scroll', () => {
@@ -324,6 +495,7 @@ window.addEventListener('scroll', () => {
 
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
 
+renderFriends();
 renderLanguage();
 configureFienta(translate);
 

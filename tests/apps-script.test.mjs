@@ -324,9 +324,9 @@ assert.equal(recordFor('Registrations', 'A')['First Name'], 'Alice reordered');
 const publicResult = vm.runInContext("getPublicRegistrations_('en')", context);
 assert.deepEqual(
   Array.from(publicResult.columns, (column) => column.key),
-  ['Player Number', 'Permanent Registration Number', 'First Name', 'Callsign', 'Payment Status'],
+  ['Player Number', 'Permanent Registration Number', 'First Name', 'Callsign', 'Side', 'Payment Status'],
 );
-assert.deepEqual(Array.from(publicResult.rows[0]), [playerNumberA, '123', 'Alice reordered', "'=Alpha", 'Paid']);
+assert.deepEqual(Array.from(publicResult.rows[0]), [playerNumberA, '123', 'Alice reordered', "'=Alpha", 'Side A', 'Paid']);
 assert.equal(publicResult.rows[1][1], '01234');
 assert.equal(publicResult.rows[3][1], '');
 assert.equal(publicResult.rows[4][1], '');

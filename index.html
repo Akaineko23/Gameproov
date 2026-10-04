@@ -8,7 +8,7 @@
     <meta property="og:description" content="Official information and registration for the game.">
     <meta property="og:type" content="website">
     <title>Undertale - Airsoft Game</title>
-    <link rel="stylesheet" href="assets/css/main.css?v=0.4.0">
+    <link rel="stylesheet" href="assets/css/main.css?v=0.5.1">
     <script>
       window.fientaAvailabilityState = {
         received: false,
@@ -28,7 +28,7 @@
       };
     </script>
     <script defer src="https://fienta.com/embed.js"></script>
-    <script type="module" src="assets/js/app.js?v=0.4.0"></script>
+    <script type="module" src="assets/js/app.js?v=0.5.1"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -48,10 +48,22 @@
 
       <nav id="main-navigation" class="navigation" aria-label="Main navigation" data-navigation>
         <a href="#news" data-navigation-target="#news" data-news-navigation data-i18n="navNews">News</a>
-        <a href="#about" data-navigation-target="#about" data-i18n="navAbout">About</a>
+        <div class="navigation-dropdown" data-navigation-dropdown>
+          <div class="navigation-dropdown-trigger">
+            <a href="#about" data-navigation-target="#about" data-navigation-group="about" data-i18n="navAbout">About</a>
+            <button type="button" aria-expanded="false" data-navigation-dropdown-toggle>
+              <span aria-hidden="true">▾</span>
+              <span class="sr-only" data-i18n="aboutMenuToggle">Open the about menu</span>
+            </button>
+          </div>
+          <div class="navigation-dropdown-menu">
+            <a href="#information" data-navigation-target="#information" data-i18n="navInformation">Information</a>
+            <a href="#about" data-i18n="navAbout">About</a>
+            <a href="#rules" data-navigation-target="#rules" data-i18n="navRules">Rules</a>
+          </div>
+        </div>
         <a href="#registered" data-navigation-target="#registered" data-registered-navigation data-i18n="navRegistered">Registered players</a>
-        <a href="#information" data-navigation-target="#information" data-i18n="navInformation">Information</a>
-        <a href="#rules" data-navigation-target="#rules" data-i18n="navRules">Rules</a>
+        <a href="#map" data-navigation-target="#map" data-map-navigation data-i18n="navMap">Map</a>
         <div class="language-switcher" aria-label="Language">
           <button type="button" data-language="et">ET</button>
           <button type="button" data-language="ru">RU</button>
@@ -140,6 +152,7 @@
         <button type="button" data-content-mode="news" data-i18n="navNews">News</button>
         <button type="button" data-content-mode="details" data-i18n="navAbout">About</button>
         <button type="button" data-content-mode="registered" data-i18n="navRegistered">Registered players</button>
+        <button type="button" data-content-mode="map" data-i18n="navMap">Map</button>
       </div>
 
       <section class="section news-section" id="news" data-content-mode-panel="news" hidden>
@@ -153,7 +166,7 @@
             <p>Kallid sõbrad!</p>
             <p>Oleme teinud reeglitesse mõned väikesed täiendused, mis puudutavad <strong>droonide kasutamist</strong>.</p>
             <p>Droonide kasutamine on esialgu lubatud.</p>
-            <p>Kehtivat infot ja piiranguid saab vaadata ametlikult <a href="https://utm.eans.ee/avm/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Estonian Drone Map (EANS)</a> lehelt.</p>
+            <p>Kehtivat infot ja piiranguid saab vaadata ametlikult <strong>Estonian Drone Map (EANS)</strong> lehelt.</p>
             <p>
             <strong>Mängukoha koordinaadid:</strong> 59.181028, 26.378079</p>
             <p>Õhuruumi kasutamise piirangud võivad muutuda, seetõttu avaldatakse ajakohane info droonide kasutamise võimaluse kohta vahetult enne mängu.</p>
@@ -175,10 +188,25 @@
         <div class="shell registered-layout">
           <div>
             <h2 data-i18n="registeredTitle">Registered players</h2>
+            <div class="side-balance" data-side-balance hidden>
+              <h3 data-i18n="sideBalanceTitle">Side balance</h3>
+              <div class="side-balance-chart" data-side-balance-chart role="img"></div>
+              <div class="side-balance-legend" data-side-balance-legend></div>
+            </div>
           </div>
           <div data-registered-content aria-live="polite">
             <p class="empty-state" data-i18n="registeredColumnsPending">The public list will appear after its columns are approved.</p>
           </div>
+        </div>
+      </section>
+
+      <section class="section map-section" id="map" data-content-mode-panel="map" hidden>
+        <div class="shell map-layout">
+          <h2 data-i18n="mapTitle">Map</h2>
+          <button class="map-preview" type="button" data-map-open>
+            <img src="Pics/Map/Kadila_aerial_preview.png" alt="" data-map-image>
+            <span class="sr-only" data-i18n="mapOpen">Open the large map</span>
+          </button>
         </div>
       </section>
 
@@ -400,9 +428,9 @@
             <strong>Droonid</strong>
             </h3>
             <p>Droonide kasutamine on esialgu lubatud.</p>
-            <p>Kehtivat infot ja piiranguid saab vaadata ametlikult <a href="https://utm.eans.ee/avm/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Estonian Drone Map (EANS)</a> lehelt.</p>
+            <p>Kehtivat infot ja piiranguid saab vaadata ametlikult <strong>Estonian Drone Map (EANS)</strong> lehelt.</p>
             <p>
-            <strong>Mängukoha koordinaadid:</strong> 59.1877944, 26.3567422 </p>
+            <strong>Mängukoha koordinaadid:</strong> 59.181028, 26.378079</p>
             <p>Õhuruumi kasutamise piirangud võivad muutuda, seetõttu avaldatakse ajakohane info droonide kasutamise võimaluse kohta vahetult enne mängu.</p>
             <p>Droone on lubatud kasutada <strong>ainult luureks</strong>.</p>
             <p>
@@ -415,6 +443,13 @@
             </ul>
             <!-- LOCAL_RULES_ET_END -->
           </div>
+        </div>
+      </section>
+
+      <section class="section friends-section" id="friends">
+        <div class="shell">
+          <h2 data-i18n="friendsTitle">Our friends</h2>
+          <div class="friends-list" data-friends-list></div>
         </div>
       </section>
 
@@ -454,6 +489,21 @@
     </footer>
 
     <a href="https://fienta.com/et/proov-68644" hidden tabindex="-1" aria-hidden="true" data-fienta-status-source></a>
+
+    <dialog class="map-lightbox" data-map-dialog aria-labelledby="map-dialog-title">
+      <div class="map-lightbox-header">
+        <h2 id="map-dialog-title" data-i18n="mapTitle">Map</h2>
+        <div class="map-lightbox-controls">
+          <button type="button" data-map-zoom-out aria-label="Zoom out" data-i18n-aria-label="mapZoomOut">−</button>
+          <button type="button" data-map-zoom-reset aria-label="Reset zoom" data-i18n-aria-label="mapZoomReset">1:1</button>
+          <button type="button" data-map-zoom-in aria-label="Zoom in" data-i18n-aria-label="mapZoomIn">+</button>
+          <button type="button" data-map-close data-i18n="mapClose">Close</button>
+        </div>
+      </div>
+      <div class="map-lightbox-viewport">
+        <img src="Pics/Map/Kadila_aerial_preview.png" alt="" data-map-dialog-image>
+      </div>
+    </dialog>
   </body>
 </html>
 
