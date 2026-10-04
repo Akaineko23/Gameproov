@@ -242,8 +242,7 @@ export const localContent = {
       <h2>
       <strong>паять тест</strong>
       </h2>
-      <p>аооо</p>
-      <p>опять проблема но не забудь стереть</p>
+      <p>Dct[ yf[eq и это точно</p>
       <h2>
       <strong>Undertail</strong>
       </h2>
@@ -478,6 +477,7 @@ export const localContent = {
       <h3>
       <strong>тебя для новости не задолбали?</strong>
       </h3>
+      <p>А мнебы увидеть небо, такое синие небо</p>
       <h3>
       <strong>22.09.2026 Изменения в правилах.</strong>
       </h3>

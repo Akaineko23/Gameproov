@@ -164,6 +164,13 @@ export const localRegistrations = {
         "Алекс",
         "дятлош",
         "Makstud"
+      ],
+      [
+        "2021",
+        "",
+        "Grabli",
+        "Akuna matata",
+        "Makstud"
       ]
     ]
   },
@@ -330,6 +337,13 @@ export const localRegistrations = {
         "Алекс",
         "дятлош",
         "Оплачен"
+      ],
+      [
+        "2021",
+        "",
+        "Grabli",
+        "Akuna matata",
+        "Оплачен"
       ]
     ]
   },
@@ -495,6 +509,13 @@ export const localRegistrations = {
         "",
         "Алекс",
         "дятлош",
+        "Paid"
+      ],
+      [
+        "2021",
+        "",
+        "Grabli",
+        "Akuna matata",
         "Paid"
       ]
     ]
