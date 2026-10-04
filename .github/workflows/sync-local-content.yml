@@ -29,13 +29,13 @@ jobs:
       - name: Commit changed local content
         shell: bash
         run: |
-          if git diff --quiet -- index.html assets/js/local-content.js assets/js/local-registrations.js; then
+          if [ -z "$(git status --porcelain -- index.html assets/js/local-content.js assets/js/local-registrations.js Pics/Synced)" ]; then
             echo "Source content is unchanged; no commit is needed."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html assets/js/local-content.js assets/js/local-registrations.js
+          git add --all -- index.html assets/js/local-content.js assets/js/local-registrations.js Pics/Synced
           git commit -m "chore: sync local game content"
           git push
