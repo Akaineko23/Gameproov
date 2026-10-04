@@ -203,7 +203,7 @@ export const localRegistrations = {
         "hren",
         "Jobobo",
         "Digimon",
-        "Maksmata"
+        "Makstud"
       ]
     ]
   },
@@ -409,7 +409,7 @@ export const localRegistrations = {
         "hren",
         "Jobobo",
         "Digimon",
-        "Не оплачен"
+        "Оплачен"
       ]
     ]
   },
@@ -615,7 +615,7 @@ export const localRegistrations = {
         "hren",
         "Jobobo",
         "Digimon",
-        "Unpaid"
+        "Paid"
       ]
     ]
   }
