@@ -1,5 +1,5 @@
 export const config = {
-  apiUrl: 'https://script.google.com/macros/s/AKfycbw8LE9DEtwK7kzmxYZjSo4XB3Ijy2X9ASnHwbip4Qs_-RCJ7CRJvzQExZWPLI6NjNqo/exec',
+  apiUrl: 'https://script.google.com/macros/s/AKfycbyrUc7ByCN9yCuv53JZPw9om76KuwLZUWdMw06TqFUpCKa509UInn3uesJcVhdyzPQ/exec',
 
   fienta: {
     eventUrl: 'https://fienta.com/et/proov-68644',
