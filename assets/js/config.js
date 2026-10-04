@@ -44,11 +44,11 @@ export const config = {
 
     sides: {
       side1: {
-        name: 'Alliance',
+        name: 'Pokemon',
         color: '#315f75',
       },
       side2: {
-        name: 'Undertail',
+        name: 'Digimon',
         color: '#7a3f62',
       },
     },
