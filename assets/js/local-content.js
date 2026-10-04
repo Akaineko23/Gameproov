@@ -240,7 +240,7 @@ export const localContent = {
   "ru": {
     "description": `
       <h2>
-      <strong>поять тест</strong>
+      <strong>паять тест</strong>
       </h2>
       <p>опять проблема но не забудь стереть</p>
       <h2>
