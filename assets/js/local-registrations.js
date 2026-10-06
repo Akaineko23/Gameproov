@@ -228,6 +228,14 @@ export const localRegistrations = {
         "",
         "Pokemon",
         "Makstud"
+      ],
+      [
+        "2030",
+        "",
+        "ркут",
+        "пор",
+        "Digimon",
+        "Makstud"
       ]
     ]
   },
@@ -458,6 +466,14 @@ export const localRegistrations = {
         "",
         "Pokemon",
         "Оплачен"
+      ],
+      [
+        "2030",
+        "",
+        "ркут",
+        "пор",
+        "Digimon",
+        "Оплачен"
       ]
     ]
   },
@@ -687,6 +703,14 @@ export const localRegistrations = {
         "лдорр",
         "",
         "Pokemon",
+        "Paid"
+      ],
+      [
+        "2030",
+        "",
+        "ркут",
+        "пор",
+        "Digimon",
         "Paid"
       ]
     ]
