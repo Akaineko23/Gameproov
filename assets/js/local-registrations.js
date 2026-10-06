@@ -236,6 +236,38 @@ export const localRegistrations = {
         "пор",
         "Digimon",
         "Makstud"
+      ],
+      [
+        "2031",
+        "",
+        "1",
+        "1",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2032",
+        "",
+        "2",
+        "2",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2033",
+        "",
+        "3",
+        "3",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2034",
+        "",
+        "4",
+        "4",
+        "Pokemon",
+        "Makstud"
       ]
     ]
   },
@@ -474,6 +506,38 @@ export const localRegistrations = {
         "пор",
         "Digimon",
         "Оплачен"
+      ],
+      [
+        "2031",
+        "",
+        "1",
+        "1",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2032",
+        "",
+        "2",
+        "2",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2033",
+        "",
+        "3",
+        "3",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2034",
+        "",
+        "4",
+        "4",
+        "Pokemon",
+        "Оплачен"
       ]
     ]
   },
@@ -711,6 +775,38 @@ export const localRegistrations = {
         "ркут",
         "пор",
         "Digimon",
+        "Paid"
+      ],
+      [
+        "2031",
+        "",
+        "1",
+        "1",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2032",
+        "",
+        "2",
+        "2",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2033",
+        "",
+        "3",
+        "3",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2034",
+        "",
+        "4",
+        "4",
+        "Pokemon",
         "Paid"
       ]
     ]
