@@ -42,16 +42,25 @@ async function main() {
   const content = {};
   const registrations = {};
 
-  for (const language of languages) {
-    if (registrationsOnly) {
+  if (registrationsOnly) {
+    for (const language of languages) {
       registrations[language] = await fetchRegistrations(apiUrl, language);
-    } else if (newsOnly) {
-      content[language] = {
-        news: await fetchNews(apiUrl, language),
-      };
-    } else {
-      content[language] = await fetchLanguage(apiUrl, language);
-      registrations[language] = await fetchRegistrations(apiUrl, language);
+    }
+  } else {
+    for (const language of languages) {
+      if (newsOnly) {
+        content[language] = {
+          news: await fetchNews(apiUrl, language),
+        };
+      } else {
+        content[language] = await fetchLanguage(apiUrl, language);
+      }
+    }
+
+    if (!newsOnly) {
+      for (const language of languages) {
+        registrations[language] = await fetchRegistrations(apiUrl, language);
+      }
     }
   }
 
@@ -122,10 +131,8 @@ function readApiUrl(configSource) {
 }
 
 async function fetchLanguage(apiUrl, language) {
-  const [contentPayload, newsPayload] = await Promise.all([
-    fetchAction(apiUrl, 'content', language),
-    fetchAction(apiUrl, 'news', language),
-  ]);
+  const contentPayload = await fetchAction(apiUrl, 'content', language);
+  const newsPayload = await fetchAction(apiUrl, 'news', language);
 
   const description = sanitizeHtml(contentPayload.description);
   const rules = sanitizeHtml(contentPayload.rules);
@@ -214,6 +221,12 @@ async function fetchAction(apiUrl, action, language) {
       return payload;
     } catch (error) {
       lastError = error;
+
+      if (attempt < 3) {
+        await new Promise((resolve) => {
+          setTimeout(resolve, attempt * 5_000);
+        });
+      }
     }
   }
 
