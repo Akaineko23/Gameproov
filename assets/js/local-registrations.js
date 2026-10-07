@@ -32,205 +32,13 @@ export const localRegistrations = {
       [
         "2001",
         "",
-        "1",
-        "1",
+        "Mjaut",
+        "koshara",
         "Pokemon",
         "Makstud"
       ],
       [
         "2002",
-        "",
-        "2",
-        "2",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2003",
-        "",
-        "3",
-        "3",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2004",
-        "",
-        "4",
-        "4",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2005",
-        "",
-        "ркут",
-        "пор",
-        "Digimon",
-        "Makstud"
-      ],
-      [
-        "2006",
-        "",
-        "Pipez",
-        "Pizdanutyj",
-        "Digimon",
-        "Makstud"
-      ],
-      [
-        "2007",
-        "",
-        "лдорр",
-        "",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2008",
-        "",
-        "Milocka",
-        "bljadina",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2009",
-        "",
-        "hren",
-        "Jobobo",
-        "Digimon",
-        "Makstud"
-      ],
-      [
-        "2010",
-        "",
-        "Grabli",
-        "Akuna matata",
-        "Digimon",
-        "Makstud"
-      ],
-      [
-        "2011",
-        "",
-        "Алекс",
-        "дятлош",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2012",
-        "",
-        "Juri",
-        "Gimli",
-        "Digimon",
-        "Makstud"
-      ],
-      [
-        "2013",
-        "",
-        "Alina",
-        "Frjgtx",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2014",
-        "",
-        "sljondyr",
-        "prostitutka",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2015",
-        "",
-        "shetina",
-        "",
-        "Digimon",
-        "Makstud"
-      ],
-      [
-        "2016",
-        "",
-        "torcok",
-        "tratatata",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2017",
-        "",
-        "harja",
-        "koshak",
-        "Digimon",
-        "Makstud"
-      ],
-      [
-        "2018",
-        "",
-        "los",
-        "nigeroid",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2019",
-        "",
-        "brut",
-        "",
-        "Digimon",
-        "Makstud"
-      ],
-      [
-        "2020",
-        "",
-        "hren",
-        "molnija",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2021",
-        "",
-        "krikun belyj",
-        "",
-        "Digimon",
-        "Makstud"
-      ],
-      [
-        "2022",
-        "",
-        "dupa",
-        "kust",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2023",
-        "",
-        "viski",
-        "hohmac",
-        "Digimon",
-        "Makstud"
-      ],
-      [
-        "2024",
-        "",
-        "pikacu",
-        "",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2025",
-        "",
-        "bulbazavr",
-        "",
-        "Pokemon",
-        "Makstud"
-      ],
-      [
-        "2026",
         "",
         "gandon",
         "cernogolovka",
@@ -238,7 +46,7 @@ export const localRegistrations = {
         "Makstud"
       ],
       [
-        "2027",
+        "2003",
         "",
         "comamon",
         "coma",
@@ -246,7 +54,7 @@ export const localRegistrations = {
         "Makstud"
       ],
       [
-        "2028",
+        "2004",
         "",
         "torcok",
         "",
@@ -254,7 +62,7 @@ export const localRegistrations = {
         "Makstud"
       ],
       [
-        "2029",
+        "2005",
         "",
         "8sisecnyj",
         "hohmac",
@@ -262,10 +70,202 @@ export const localRegistrations = {
         "Makstud"
       ],
       [
+        "2006",
+        "",
+        "pikacu",
+        "",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2007",
+        "",
+        "bulbazavr",
+        "",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2008",
+        "",
+        "hren",
+        "molnija",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2009",
+        "",
+        "krikun belyj",
+        "",
+        "Digimon",
+        "Makstud"
+      ],
+      [
+        "2010",
+        "",
+        "dupa",
+        "kust",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2011",
+        "",
+        "viski",
+        "hohmac",
+        "Digimon",
+        "Makstud"
+      ],
+      [
+        "2012",
+        "",
+        "sljondyr",
+        "prostitutka",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2013",
+        "",
+        "shetina",
+        "",
+        "Digimon",
+        "Makstud"
+      ],
+      [
+        "2014",
+        "",
+        "torcok",
+        "tratatata",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2015",
+        "",
+        "harja",
+        "koshak",
+        "Digimon",
+        "Makstud"
+      ],
+      [
+        "2016",
+        "",
+        "los",
+        "nigeroid",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2017",
+        "",
+        "brut",
+        "",
+        "Digimon",
+        "Makstud"
+      ],
+      [
+        "2018",
+        "",
+        "Alina",
+        "Frjgtx",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2019",
+        "",
+        "Juri",
+        "Gimli",
+        "Digimon",
+        "Makstud"
+      ],
+      [
+        "2020",
+        "",
+        "Алекс",
+        "дятлош",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2021",
+        "",
+        "Grabli",
+        "Akuna matata",
+        "Digimon",
+        "Makstud"
+      ],
+      [
+        "2022",
+        "",
+        "hren",
+        "Jobobo",
+        "Digimon",
+        "Makstud"
+      ],
+      [
+        "2023",
+        "",
+        "Milocka",
+        "bljadina",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2024",
+        "",
+        "лдорр",
+        "",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2025",
+        "",
+        "Pipez",
+        "Pizdanutyj",
+        "Digimon",
+        "Makstud"
+      ],
+      [
+        "2026",
+        "",
+        "ркут",
+        "пор",
+        "Digimon",
+        "Makstud"
+      ],
+      [
+        "2027",
+        "",
+        "1",
+        "1",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2028",
+        "",
+        "2",
+        "2",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2029",
+        "",
+        "3",
+        "3",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
         "2030",
         "",
-        "Mjaut",
-        "koshara",
+        "4",
+        "4",
         "Pokemon",
         "Makstud"
       ]
@@ -302,205 +302,13 @@ export const localRegistrations = {
       [
         "2001",
         "",
-        "1",
-        "1",
+        "Mjaut",
+        "koshara",
         "Pokemon",
         "Оплачен"
       ],
       [
         "2002",
-        "",
-        "2",
-        "2",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2003",
-        "",
-        "3",
-        "3",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2004",
-        "",
-        "4",
-        "4",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2005",
-        "",
-        "ркут",
-        "пор",
-        "Digimon",
-        "Оплачен"
-      ],
-      [
-        "2006",
-        "",
-        "Pipez",
-        "Pizdanutyj",
-        "Digimon",
-        "Оплачен"
-      ],
-      [
-        "2007",
-        "",
-        "лдорр",
-        "",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2008",
-        "",
-        "Milocka",
-        "bljadina",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2009",
-        "",
-        "hren",
-        "Jobobo",
-        "Digimon",
-        "Оплачен"
-      ],
-      [
-        "2010",
-        "",
-        "Grabli",
-        "Akuna matata",
-        "Digimon",
-        "Оплачен"
-      ],
-      [
-        "2011",
-        "",
-        "Алекс",
-        "дятлош",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2012",
-        "",
-        "Juri",
-        "Gimli",
-        "Digimon",
-        "Оплачен"
-      ],
-      [
-        "2013",
-        "",
-        "Alina",
-        "Frjgtx",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2014",
-        "",
-        "sljondyr",
-        "prostitutka",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2015",
-        "",
-        "shetina",
-        "",
-        "Digimon",
-        "Оплачен"
-      ],
-      [
-        "2016",
-        "",
-        "torcok",
-        "tratatata",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2017",
-        "",
-        "harja",
-        "koshak",
-        "Digimon",
-        "Оплачен"
-      ],
-      [
-        "2018",
-        "",
-        "los",
-        "nigeroid",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2019",
-        "",
-        "brut",
-        "",
-        "Digimon",
-        "Оплачен"
-      ],
-      [
-        "2020",
-        "",
-        "hren",
-        "molnija",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2021",
-        "",
-        "krikun belyj",
-        "",
-        "Digimon",
-        "Оплачен"
-      ],
-      [
-        "2022",
-        "",
-        "dupa",
-        "kust",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2023",
-        "",
-        "viski",
-        "hohmac",
-        "Digimon",
-        "Оплачен"
-      ],
-      [
-        "2024",
-        "",
-        "pikacu",
-        "",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2025",
-        "",
-        "bulbazavr",
-        "",
-        "Pokemon",
-        "Оплачен"
-      ],
-      [
-        "2026",
         "",
         "gandon",
         "cernogolovka",
@@ -508,7 +316,7 @@ export const localRegistrations = {
         "Оплачен"
       ],
       [
-        "2027",
+        "2003",
         "",
         "comamon",
         "coma",
@@ -516,7 +324,7 @@ export const localRegistrations = {
         "Оплачен"
       ],
       [
-        "2028",
+        "2004",
         "",
         "torcok",
         "",
@@ -524,7 +332,7 @@ export const localRegistrations = {
         "Оплачен"
       ],
       [
-        "2029",
+        "2005",
         "",
         "8sisecnyj",
         "hohmac",
@@ -532,10 +340,202 @@ export const localRegistrations = {
         "Оплачен"
       ],
       [
+        "2006",
+        "",
+        "pikacu",
+        "",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2007",
+        "",
+        "bulbazavr",
+        "",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2008",
+        "",
+        "hren",
+        "molnija",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2009",
+        "",
+        "krikun belyj",
+        "",
+        "Digimon",
+        "Оплачен"
+      ],
+      [
+        "2010",
+        "",
+        "dupa",
+        "kust",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2011",
+        "",
+        "viski",
+        "hohmac",
+        "Digimon",
+        "Оплачен"
+      ],
+      [
+        "2012",
+        "",
+        "sljondyr",
+        "prostitutka",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2013",
+        "",
+        "shetina",
+        "",
+        "Digimon",
+        "Оплачен"
+      ],
+      [
+        "2014",
+        "",
+        "torcok",
+        "tratatata",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2015",
+        "",
+        "harja",
+        "koshak",
+        "Digimon",
+        "Оплачен"
+      ],
+      [
+        "2016",
+        "",
+        "los",
+        "nigeroid",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2017",
+        "",
+        "brut",
+        "",
+        "Digimon",
+        "Оплачен"
+      ],
+      [
+        "2018",
+        "",
+        "Alina",
+        "Frjgtx",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2019",
+        "",
+        "Juri",
+        "Gimli",
+        "Digimon",
+        "Оплачен"
+      ],
+      [
+        "2020",
+        "",
+        "Алекс",
+        "дятлош",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2021",
+        "",
+        "Grabli",
+        "Akuna matata",
+        "Digimon",
+        "Оплачен"
+      ],
+      [
+        "2022",
+        "",
+        "hren",
+        "Jobobo",
+        "Digimon",
+        "Оплачен"
+      ],
+      [
+        "2023",
+        "",
+        "Milocka",
+        "bljadina",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2024",
+        "",
+        "лдорр",
+        "",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2025",
+        "",
+        "Pipez",
+        "Pizdanutyj",
+        "Digimon",
+        "Оплачен"
+      ],
+      [
+        "2026",
+        "",
+        "ркут",
+        "пор",
+        "Digimon",
+        "Оплачен"
+      ],
+      [
+        "2027",
+        "",
+        "1",
+        "1",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2028",
+        "",
+        "2",
+        "2",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2029",
+        "",
+        "3",
+        "3",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
         "2030",
         "",
-        "Mjaut",
-        "koshara",
+        "4",
+        "4",
         "Pokemon",
         "Оплачен"
       ]
@@ -572,205 +572,13 @@ export const localRegistrations = {
       [
         "2001",
         "",
-        "1",
-        "1",
+        "Mjaut",
+        "koshara",
         "Pokemon",
         "Paid"
       ],
       [
         "2002",
-        "",
-        "2",
-        "2",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2003",
-        "",
-        "3",
-        "3",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2004",
-        "",
-        "4",
-        "4",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2005",
-        "",
-        "ркут",
-        "пор",
-        "Digimon",
-        "Paid"
-      ],
-      [
-        "2006",
-        "",
-        "Pipez",
-        "Pizdanutyj",
-        "Digimon",
-        "Paid"
-      ],
-      [
-        "2007",
-        "",
-        "лдорр",
-        "",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2008",
-        "",
-        "Milocka",
-        "bljadina",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2009",
-        "",
-        "hren",
-        "Jobobo",
-        "Digimon",
-        "Paid"
-      ],
-      [
-        "2010",
-        "",
-        "Grabli",
-        "Akuna matata",
-        "Digimon",
-        "Paid"
-      ],
-      [
-        "2011",
-        "",
-        "Алекс",
-        "дятлош",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2012",
-        "",
-        "Juri",
-        "Gimli",
-        "Digimon",
-        "Paid"
-      ],
-      [
-        "2013",
-        "",
-        "Alina",
-        "Frjgtx",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2014",
-        "",
-        "sljondyr",
-        "prostitutka",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2015",
-        "",
-        "shetina",
-        "",
-        "Digimon",
-        "Paid"
-      ],
-      [
-        "2016",
-        "",
-        "torcok",
-        "tratatata",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2017",
-        "",
-        "harja",
-        "koshak",
-        "Digimon",
-        "Paid"
-      ],
-      [
-        "2018",
-        "",
-        "los",
-        "nigeroid",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2019",
-        "",
-        "brut",
-        "",
-        "Digimon",
-        "Paid"
-      ],
-      [
-        "2020",
-        "",
-        "hren",
-        "molnija",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2021",
-        "",
-        "krikun belyj",
-        "",
-        "Digimon",
-        "Paid"
-      ],
-      [
-        "2022",
-        "",
-        "dupa",
-        "kust",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2023",
-        "",
-        "viski",
-        "hohmac",
-        "Digimon",
-        "Paid"
-      ],
-      [
-        "2024",
-        "",
-        "pikacu",
-        "",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2025",
-        "",
-        "bulbazavr",
-        "",
-        "Pokemon",
-        "Paid"
-      ],
-      [
-        "2026",
         "",
         "gandon",
         "cernogolovka",
@@ -778,7 +586,7 @@ export const localRegistrations = {
         "Paid"
       ],
       [
-        "2027",
+        "2003",
         "",
         "comamon",
         "coma",
@@ -786,7 +594,7 @@ export const localRegistrations = {
         "Paid"
       ],
       [
-        "2028",
+        "2004",
         "",
         "torcok",
         "",
@@ -794,7 +602,7 @@ export const localRegistrations = {
         "Paid"
       ],
       [
-        "2029",
+        "2005",
         "",
         "8sisecnyj",
         "hohmac",
@@ -802,10 +610,202 @@ export const localRegistrations = {
         "Paid"
       ],
       [
+        "2006",
+        "",
+        "pikacu",
+        "",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2007",
+        "",
+        "bulbazavr",
+        "",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2008",
+        "",
+        "hren",
+        "molnija",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2009",
+        "",
+        "krikun belyj",
+        "",
+        "Digimon",
+        "Paid"
+      ],
+      [
+        "2010",
+        "",
+        "dupa",
+        "kust",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2011",
+        "",
+        "viski",
+        "hohmac",
+        "Digimon",
+        "Paid"
+      ],
+      [
+        "2012",
+        "",
+        "sljondyr",
+        "prostitutka",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2013",
+        "",
+        "shetina",
+        "",
+        "Digimon",
+        "Paid"
+      ],
+      [
+        "2014",
+        "",
+        "torcok",
+        "tratatata",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2015",
+        "",
+        "harja",
+        "koshak",
+        "Digimon",
+        "Paid"
+      ],
+      [
+        "2016",
+        "",
+        "los",
+        "nigeroid",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2017",
+        "",
+        "brut",
+        "",
+        "Digimon",
+        "Paid"
+      ],
+      [
+        "2018",
+        "",
+        "Alina",
+        "Frjgtx",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2019",
+        "",
+        "Juri",
+        "Gimli",
+        "Digimon",
+        "Paid"
+      ],
+      [
+        "2020",
+        "",
+        "Алекс",
+        "дятлош",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2021",
+        "",
+        "Grabli",
+        "Akuna matata",
+        "Digimon",
+        "Paid"
+      ],
+      [
+        "2022",
+        "",
+        "hren",
+        "Jobobo",
+        "Digimon",
+        "Paid"
+      ],
+      [
+        "2023",
+        "",
+        "Milocka",
+        "bljadina",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2024",
+        "",
+        "лдорр",
+        "",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2025",
+        "",
+        "Pipez",
+        "Pizdanutyj",
+        "Digimon",
+        "Paid"
+      ],
+      [
+        "2026",
+        "",
+        "ркут",
+        "пор",
+        "Digimon",
+        "Paid"
+      ],
+      [
+        "2027",
+        "",
+        "1",
+        "1",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2028",
+        "",
+        "2",
+        "2",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2029",
+        "",
+        "3",
+        "3",
+        "Pokemon",
+        "Paid"
+      ],
+      [
         "2030",
         "",
-        "Mjaut",
-        "koshara",
+        "4",
+        "4",
         "Pokemon",
         "Paid"
       ]
