@@ -31,7 +31,7 @@ export const localRegistrations = {
     "rows": [
       [
         "2001",
-        "",
+        "555",
         "Mjaut",
         "koshara",
         "Pokemon",
@@ -39,7 +39,7 @@ export const localRegistrations = {
       ],
       [
         "2002",
-        "",
+        "457",
         "gandon",
         "cernogolovka",
         "Digimon",
@@ -87,7 +87,7 @@ export const localRegistrations = {
       ],
       [
         "2008",
-        "",
+        "568",
         "hren",
         "molnija",
         "Pokemon",
@@ -111,7 +111,7 @@ export const localRegistrations = {
       ],
       [
         "2011",
-        "",
+        "666",
         "viski",
         "hohmac",
         "Digimon",
@@ -119,7 +119,7 @@ export const localRegistrations = {
       ],
       [
         "2012",
-        "",
+        "46",
         "sljondyr",
         "prostitutka",
         "Pokemon",
@@ -159,7 +159,7 @@ export const localRegistrations = {
       ],
       [
         "2017",
-        "",
+        "789",
         "brut",
         "",
         "Digimon",
@@ -175,7 +175,7 @@ export const localRegistrations = {
       ],
       [
         "2019",
-        "",
+        "517",
         "Juri",
         "Gimli",
         "Digimon",
@@ -223,7 +223,7 @@ export const localRegistrations = {
       ],
       [
         "2025",
-        "",
+        "889",
         "Pipez",
         "Pizdanutyj",
         "Digimon",
@@ -271,7 +271,7 @@ export const localRegistrations = {
       ],
       [
         "2031",
-        "",
+        "23",
         "23",
         "23",
         "Pokemon",
@@ -309,7 +309,7 @@ export const localRegistrations = {
     "rows": [
       [
         "2001",
-        "",
+        "555",
         "Mjaut",
         "koshara",
         "Pokemon",
@@ -317,7 +317,7 @@ export const localRegistrations = {
       ],
       [
         "2002",
-        "",
+        "457",
         "gandon",
         "cernogolovka",
         "Digimon",
@@ -365,7 +365,7 @@ export const localRegistrations = {
       ],
       [
         "2008",
-        "",
+        "568",
         "hren",
         "molnija",
         "Pokemon",
@@ -389,7 +389,7 @@ export const localRegistrations = {
       ],
       [
         "2011",
-        "",
+        "666",
         "viski",
         "hohmac",
         "Digimon",
@@ -397,7 +397,7 @@ export const localRegistrations = {
       ],
       [
         "2012",
-        "",
+        "46",
         "sljondyr",
         "prostitutka",
         "Pokemon",
@@ -437,7 +437,7 @@ export const localRegistrations = {
       ],
       [
         "2017",
-        "",
+        "789",
         "brut",
         "",
         "Digimon",
@@ -453,7 +453,7 @@ export const localRegistrations = {
       ],
       [
         "2019",
-        "",
+        "517",
         "Juri",
         "Gimli",
         "Digimon",
@@ -501,7 +501,7 @@ export const localRegistrations = {
       ],
       [
         "2025",
-        "",
+        "889",
         "Pipez",
         "Pizdanutyj",
         "Digimon",
@@ -549,7 +549,7 @@ export const localRegistrations = {
       ],
       [
         "2031",
-        "",
+        "23",
         "23",
         "23",
         "Pokemon",
@@ -587,7 +587,7 @@ export const localRegistrations = {
     "rows": [
       [
         "2001",
-        "",
+        "555",
         "Mjaut",
         "koshara",
         "Pokemon",
@@ -595,7 +595,7 @@ export const localRegistrations = {
       ],
       [
         "2002",
-        "",
+        "457",
         "gandon",
         "cernogolovka",
         "Digimon",
@@ -643,7 +643,7 @@ export const localRegistrations = {
       ],
       [
         "2008",
-        "",
+        "568",
         "hren",
         "molnija",
         "Pokemon",
@@ -667,7 +667,7 @@ export const localRegistrations = {
       ],
       [
         "2011",
-        "",
+        "666",
         "viski",
         "hohmac",
         "Digimon",
@@ -675,7 +675,7 @@ export const localRegistrations = {
       ],
       [
         "2012",
-        "",
+        "46",
         "sljondyr",
         "prostitutka",
         "Pokemon",
@@ -715,7 +715,7 @@ export const localRegistrations = {
       ],
       [
         "2017",
-        "",
+        "789",
         "brut",
         "",
         "Digimon",
@@ -731,7 +731,7 @@ export const localRegistrations = {
       ],
       [
         "2019",
-        "",
+        "517",
         "Juri",
         "Gimli",
         "Digimon",
@@ -779,7 +779,7 @@ export const localRegistrations = {
       ],
       [
         "2025",
-        "",
+        "889",
         "Pipez",
         "Pizdanutyj",
         "Digimon",
@@ -827,7 +827,7 @@ export const localRegistrations = {
       ],
       [
         "2031",
-        "",
+        "23",
         "23",
         "23",
         "Pokemon",
