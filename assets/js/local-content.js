@@ -224,7 +224,10 @@ export const localContent = {
       </ul>
     `,
     "news": `
-      <h3>111</h3>
+      <h3>12.10.26</h3>
+      <p>🌿 Sõbrad, palume teil mängule kaasa võtta oma kruus või termos, et vähendada ühekordsete topside kasutamist.</p>
+      <p>Aitäh, et hoolite koos meiega loodusest! 💚</p>
+      <p>—------------------------------------------------------------------------------------------------------------------------</p>
       <h3>22.09.2026 Reeglite muudatused</h3>
       <p>Kallid sõbrad!</p>
       <p>Oleme teinud reeglitesse mõned väikesed täiendused, mis puudutavad <strong>droonide kasutamist</strong>.</p>
@@ -477,11 +480,11 @@ export const localContent = {
       </ul>
     `,
     "news": `
-      <h3>
-      <strong>111</strong>
-      </h3>
-      <h3>
-      <strong>22.09.2026 Изменения в правилах.</strong>
+      <h3>12.10.26</h3>
+      <p>🌿 Друзья, просим взять с собой кружки или термосы для чая, чтобы сократить использование одноразовых стаканчиков.</p>
+      <p>Спасибо, что заботитесь о природе вместе с нами! 💚</p>
+      <p>—------------------------------------------------------------------------------------------------------------------------</p>
+      <h3>22.09.2026 Изменения в правилах<strong>.</strong>
       </h3>
       <p>Дорогие друзья, мы внесли небольшие дополнения в правила, касаемые использование дронов.</p>
       <p>Использование дронов предварительно разрешено.</p>
@@ -726,8 +729,11 @@ export const localContent = {
     `,
     "news": `
       <h3>
-      <strong>111</strong>
+      <strong>12.10.26</strong>
       </h3>
+      <p>🌿 Friends, please bring your own mug or thermos for tea to help reduce the use of disposable cups.</p>
+      <p>Thank you for helping us protect nature! 💚</p>
+      <p>—------------------------------------------------------------------------------------------------------------------------</p>
       <h3>
       <strong>22.09.2026 Rules Update</strong>
       </h3>
