@@ -242,7 +242,7 @@ export const localRegistrations = {
         "",
         "1",
         "1",
-        "Pokemon",
+        "Digimon",
         "Makstud"
       ],
       [
@@ -275,6 +275,22 @@ export const localRegistrations = {
         "23",
         "23",
         "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2032",
+        "4444",
+        "Kaban",
+        "Puzan",
+        "Pokemon",
+        "Makstud"
+      ],
+      [
+        "2033",
+        "",
+        "nahal",
+        "sad",
+        "Digimon",
         "Makstud"
       ]
     ]
@@ -520,7 +536,7 @@ export const localRegistrations = {
         "",
         "1",
         "1",
-        "Pokemon",
+        "Digimon",
         "Оплачен"
       ],
       [
@@ -553,6 +569,22 @@ export const localRegistrations = {
         "23",
         "23",
         "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2032",
+        "4444",
+        "Kaban",
+        "Puzan",
+        "Pokemon",
+        "Оплачен"
+      ],
+      [
+        "2033",
+        "",
+        "nahal",
+        "sad",
+        "Digimon",
         "Оплачен"
       ]
     ]
@@ -798,7 +830,7 @@ export const localRegistrations = {
         "",
         "1",
         "1",
-        "Pokemon",
+        "Digimon",
         "Paid"
       ],
       [
@@ -831,6 +863,22 @@ export const localRegistrations = {
         "23",
         "23",
         "Pokemon",
+        "Paid"
+      ],
+      [
+        "2032",
+        "4444",
+        "Kaban",
+        "Puzan",
+        "Pokemon",
+        "Paid"
+      ],
+      [
+        "2033",
+        "",
+        "nahal",
+        "sad",
+        "Digimon",
         "Paid"
       ]
     ]
